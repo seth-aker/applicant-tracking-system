@@ -1,0 +1,36 @@
+<powerpagecomponent powerpagecomponentid="656fa427-5d7f-49b3-a96e-c2de820c4c9e">
+  <content>{
+  "lcid": 1033,
+  "entityname": "apptrack_joblisting",
+  "formname": "Job Listing Details Form",
+  "mode": 100000002,
+  "onsuccess": 756150000,
+  "successmessage": "[{\"LCID\":1033,\"Value\":\"\"}]",
+  "hideformonsuccess": true,
+  "redirectwebpage": null,
+  "redirecturl": null,
+  "captcharequired": false,
+  "showcaptchaforauthenticatedusers": false,
+  "entitypermissionsenabled": true,
+  "attachfilelabel": "[{\"LCID\":1033,\"Value\":\"Attach your resume here.\"}]",
+  "attachfilemaxsize": null,
+  "entitysourcetype": 756150001,
+  "recordidquerystringparametername": "id",
+  "entityFormMetadatas": [],
+  "attachfile": false,
+  "attachfilerequired": true,
+  "attachfilerestrictaccept": true,
+  "attachfilesaveoption": 756150000,
+  "attachfilestoragelocation": 756150000,
+  "geolocation_maptype": 756150000,
+  "forceallfieldsrequired": false
+}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Job Listing Details Form</name>
+  <powerpagecomponenttype>15</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>7e6cbf7f-59af-4d81-99b2-7df7b5a27d5c</powerpagesiteid>
+  </powerpagesiteid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

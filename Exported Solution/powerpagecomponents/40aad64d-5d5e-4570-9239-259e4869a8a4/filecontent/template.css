@@ -1,0 +1,5 @@
+@media screen and (min-width: 576px) {
+  .home-section-1 {
+    padding: 150px !important; /* override .columnBlockLayout */
+  }
+}

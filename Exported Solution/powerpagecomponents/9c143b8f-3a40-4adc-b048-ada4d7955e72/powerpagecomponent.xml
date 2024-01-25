@@ -1,0 +1,11 @@
+<powerpagecomponent powerpagecomponentid="9c143b8f-3a40-4adc-b048-ada4d7955e72">
+  <content>{"importsequencenumber":3,"value":"true"}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Authentication/Registration/EmailConfirmationEnabled</name>
+  <powerpagecomponenttype>9</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6</powerpagesiteid>
+  </powerpagesiteid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

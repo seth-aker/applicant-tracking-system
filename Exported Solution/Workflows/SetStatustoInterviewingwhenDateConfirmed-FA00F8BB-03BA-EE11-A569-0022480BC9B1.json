@@ -1,0 +1,189 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "apptrack_sharedcommondataserviceforapps_ff360"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      },
+      "shared_office365_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "apptrack_sharedoffice365_2a031"
+        },
+        "api": {
+          "name": "shared_office365"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_a_row_is_added,_modified_or_deleted": {
+          "metadata": {
+            "operationMetadataId": "a1b82a99-d504-4804-8112-3e1f9efc23bd"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "apptrack_interview",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "apptrack_interviewdate"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "If_Interview_Date_is_in_the_Future": {
+          "actions": {
+            "Update_a_row": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "7b434f9b-6b49-40dd-bd55-f591bc50bbf4"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "UpdateRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "apptrack_jobapplications",
+                  "recordId": "@triggerOutputs()?['body/_apptrack_applicationid_value']",
+                  "item/apptrack_status": 578500003
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Send_an_email_(V2)": {
+              "runAfter": {
+                "Convert_time_zone_to_ET": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "be4c772b-777f-4d31-a452-17198f40e62f"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_office365_1",
+                  "operationId": "SendEmailV2",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+                },
+                "parameters": {
+                  "emailMessage/To": "@outputs('Update_a_row')?['body/emailaddress']",
+                  "emailMessage/Subject": "Interview Scheduling Confirmation",
+                  "emailMessage/Body": "<p>Hello @{outputs('Update_a_row')?['body/apptrack_applicantname']},<br>\n<br>\nThis is confirmation of your interview scheduled on @{formatDateTime(parseDateTime(body('Convert_time_zone_to_ET')), 'MM-dd-yyyy', 'en-US')} at @{formatDateTime(parseDateTime(body('Convert_time_zone_to_ET')), 'hh:mm tt')} EST for the position @{outputs('Get_Job_Listing_Information')?['body/apptrack_positiontitle']}. <br>\nPlease arrive at least 15 minutes early to give time for yourself to find the location and check-in.<br>\n<br>\nBest of Luck,<br>\nHorizon Automated Solutions</p>",
+                  "emailMessage/Bcc": "@outputs('Get_Hiring_Manager_Information')?['body/internalemailaddress']",
+                  "emailMessage/Importance": "Normal"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Get_Job_Listing_Information": {
+              "runAfter": {
+                "Update_a_row": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "58c7544a-2c5f-43df-82f6-97e4ad816a1f"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "GetItem",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "apptrack_joblistings",
+                  "recordId": "@outputs('Update_a_row')?['body/_apptrack_joblisting_value']"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Get_Hiring_Manager_Information": {
+              "runAfter": {
+                "Get_Job_Listing_Information": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "3614b166-567b-40af-a711-a9d6e54f99f6"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "GetItem",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "systemusers",
+                  "recordId": "@outputs('Get_Job_Listing_Information')?['body/_apptrack_hiringmanager_value']"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Convert_time_zone_to_ET": {
+              "runAfter": {
+                "Get_Hiring_Manager_Information": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "af71608c-c636-45c9-a8c8-5c024c2c93af"
+              },
+              "type": "Expression",
+              "kind": "ConvertTimeZone",
+              "inputs": {
+                "baseTime": "@triggerOutputs()?['body/apptrack_interviewdate']",
+                "formatString": "s",
+                "sourceTimeZone": "UTC",
+                "destinationTimeZone": "Eastern Standard Time"
+              }
+            }
+          },
+          "runAfter": {},
+          "expression": {
+            "greaterOrEquals": [
+              "@triggerOutputs()?['body/apptrack_interviewdate']",
+              "@utcNow()"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "aea5664f-ddbb-467b-9636-5b12a92b4906"
+          },
+          "type": "If"
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

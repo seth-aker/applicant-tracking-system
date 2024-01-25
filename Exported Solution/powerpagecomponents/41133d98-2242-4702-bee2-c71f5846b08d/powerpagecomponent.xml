@@ -1,0 +1,29 @@
+<powerpagecomponent powerpagecomponentid="41133d98-2242-4702-bee2-c71f5846b08d">
+  <content>{
+  "entityname": "Active Web Job Listings_Attachment",
+  "entitylogicalname": "annotation",
+  "scope": 756150003,
+  "append": true,
+  "appendto": true,
+  "delete": true,
+  "read": true,
+  "create": true,
+  "write": true,
+  "parentrelationship": "apptrack_joblisting_Annotations",
+  "parententitypermission": "478187cd-76e4-4f5d-811f-547f67a54662",
+  "contactrelationship": null,
+  "accountrelationship": null,
+  "childTablePermissions": [],
+  "adx_entitypermission_webrole": [
+    "987e540d-c89f-4154-b06a-02765449ef40"
+  ]
+}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Active Web Job Listings_Attachment</name>
+  <powerpagecomponenttype>18</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>7e6cbf7f-59af-4d81-99b2-7df7b5a27d5c</powerpagesiteid>
+  </powerpagesiteid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

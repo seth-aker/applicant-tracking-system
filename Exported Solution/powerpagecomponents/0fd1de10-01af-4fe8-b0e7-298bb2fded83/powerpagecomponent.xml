@@ -1,0 +1,41 @@
+<powerpagecomponent powerpagecomponentid="0fd1de10-01af-4fe8-b0e7-298bb2fded83">
+  <content>{
+  "copy": "&lt;div id=\"iceqcs\" class=\"row sectionBlockLayout\" style=\"padding: 8px; margin: 0px; display: flex; flex-wrap: wrap; min-height: 50px; background: var(--portalThemeColor2);\"&gt;&lt;/div&gt;\n&lt;div id=\"iyh7eu\" class=\"row sectionBlockLayout\" style=\"padding: 8px; margin: 0px; display: flex; flex-wrap: wrap; min-height: 50px; background: var(--portalThemeColor6);\"&gt;&lt;/div&gt;\n&lt;div id=\"i8kran\" class=\"row sectionBlockLayout\" style=\"padding: 8px; margin: 0px; display: flex; flex-wrap: wrap; text-align: left; min-height: 374px;\"&gt;\n  &lt;div data-component-theme=\"portalThemeColor7\" id=\"i47x6i\" class=\"container\" style=\"padding: 0px; display: flex; flex-wrap: wrap;\"&gt;\n    &lt;div id=\"i981o6\" class=\"col-md-12 columnBlockLayout\" style=\"word-break: break-word; flex-grow: 1; display: flex; flex-direction: column; min-width: 300px; padding: 16px;\"&gt;\n      &lt;img src=\"/Cat-PC.png\" alt=\"Cat\" name=\"Cat-PC.png\" id=\"iourz8\" style=\"max-width: 100%; width: 200px; height: 161px; margin-left: auto; margin-right: auto;\" /&gt;\n      &lt;h2 id=\"ipjqse\" style=\"text-align: center;\"&gt;Please Sign In to Continue!&lt;/h2&gt;\n      &lt;button onclick=\"window.location.href='https://horizonenterprisesjobsite.powerappsportals.com/SignIn?returnUrl=%2F'\" type=\"button\" value=\"https://horizonenterprisesjobsite.powerappsportals.com/SignIn?returnUrl=%2F\" id=\"iyb7fd\" class=\"button1\" style=\"margin-left: auto; margin-right: auto;\"&gt;Sign In&lt;/button&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n&lt;div id=\"igie6a\" class=\"row sectionBlockLayout\" style=\"padding: 8px; margin: 0px; display: flex; flex-wrap: wrap; min-height: 315px; background: var(--portalThemeColor1);\"&gt;&lt;/div&gt;\n",
+  "enablerating": false,
+  "enabletracking": false,
+  "excludefromsearch": true,
+  "feedbackpolicy": 756150000,
+  "hiddenfromsitemap": true,
+  "isroot": false,
+  "pagetemplateid": "b2741266-3a58-42aa-8539-5c3cf71f1bd4",
+  "parentpageid": "ed87d191-0fbf-4d0e-8c1c-085306d6a759",
+  "partialurl": "access-denied",
+  "publishingstateid": "2a0ca4d2-9e59-436a-bcef-80596bd316ab",
+  "rootwebpageid": "6be70c6d-b09b-40f6-9f2a-561851b96718",
+  "sharedpageconfiguration": false
+}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Access Denied</name>
+  <powerpagecomponenttype>2</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>7e6cbf7f-59af-4d81-99b2-7df7b5a27d5c</powerpagesiteid>
+  </powerpagesiteid>
+  <powerpagesitelanguageid>
+    <powerpagesitelanguageid>cff73c28-7077-4f3d-95ea-2592844e6a71</powerpagesitelanguageid>
+  </powerpagesitelanguageid>
+  <searchcontent>&lt;div id="iceqcs" class="row sectionBlockLayout" style="padding: 8px; margin: 0px; display: flex; flex-wrap: wrap; min-height: 50px; background: var(--portalThemeColor2);"&gt;&lt;/div&gt;
+&lt;div id="iyh7eu" class="row sectionBlockLayout" style="padding: 8px; margin: 0px; display: flex; flex-wrap: wrap; min-height: 50px; background: var(--portalThemeColor6);"&gt;&lt;/div&gt;
+&lt;div id="i8kran" class="row sectionBlockLayout" style="padding: 8px; margin: 0px; display: flex; flex-wrap: wrap; text-align: left; min-height: 374px;"&gt;
+  &lt;div data-component-theme="portalThemeColor7" id="i47x6i" class="container" style="padding: 0px; display: flex; flex-wrap: wrap;"&gt;
+    &lt;div id="i981o6" class="col-md-12 columnBlockLayout" style="word-break: break-word; flex-grow: 1; display: flex; flex-direction: column; min-width: 300px; padding: 16px;"&gt;
+      &lt;img src="/Cat-PC.png" alt="Cat" name="Cat-PC.png" id="iourz8" style="max-width: 100%; width: 200px; height: 161px; margin-left: auto; margin-right: auto;" /&gt;
+      &lt;h2 id="ipjqse" style="text-align: center;"&gt;Please Sign In to Continue!&lt;/h2&gt;
+      &lt;button onclick="window.location.href='https://horizonenterprisesjobsite.powerappsportals.com/SignIn?returnUrl=%2F'" type="button" value="https://horizonenterprisesjobsite.powerappsportals.com/SignIn?returnUrl=%2F" id="iyb7fd" class="button1" style="margin-left: auto; margin-right: auto;"&gt;Sign In&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="igie6a" class="row sectionBlockLayout" style="padding: 8px; margin: 0px; display: flex; flex-wrap: wrap; min-height: 315px; background: var(--portalThemeColor1);"&gt;&lt;/div&gt;
+Access Denied</searchcontent>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

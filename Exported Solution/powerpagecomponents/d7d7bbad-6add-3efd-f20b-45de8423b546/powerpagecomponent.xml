@@ -1,0 +1,19 @@
+<powerpagecomponent powerpagecomponentid="d7d7bbad-6add-3efd-f20b-45de8423b546">
+  <content>{
+  "webpageid": "13c52863-d381-43c2-84ab-ee662234899b",
+  "right": 2,
+  "scope": 1,
+  "adx_webpageaccesscontrolrule_webrole": [
+    "987e540d-c89f-4154-b06a-02765449ef40",
+    "643dd884-f524-4750-8194-3549627fce08"
+  ]
+}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Restrict Read on Job Details Subpage</name>
+  <powerpagecomponenttype>10</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>7e6cbf7f-59af-4d81-99b2-7df7b5a27d5c</powerpagesiteid>
+  </powerpagesiteid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

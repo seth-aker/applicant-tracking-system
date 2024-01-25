@@ -1,0 +1,22 @@
+<powerpagecomponent powerpagecomponentid="8e1028c6-f19c-1914-f1a6-588b3438c1ef">
+  <content>{
+  "displayorder": 3,
+  "parentweblinkid": "5afa6c60-b5ef-45f2-a8a0-869ddb5592ba",
+  "weblinksetid": "ab62885f-65b9-4b5d-a442-822894ffe7f6",
+  "pageid": "02a5f0fc-dd00-7356-bd19-ff9079819189",
+  "publishingstateid": "2a0ca4d2-9e59-436a-bcef-80596bd316ab",
+  "displaypagevalidation": false,
+  "displayimageonly": false,
+  "displaypagechildlinks": false,
+  "openinnewwindow": false,
+  "robotsfollowlink": true
+}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Job-Submission-Subpage</name>
+  <powerpagecomponenttype>5</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>7e6cbf7f-59af-4d81-99b2-7df7b5a27d5c</powerpagesiteid>
+  </powerpagesiteid>
+  <statecode>1</statecode>
+  <statuscode>2</statuscode>
+</powerpagecomponent>

@@ -1,0 +1,18 @@
+<powerpagecomponent powerpagecomponentid="6eed44ae-9058-420d-9f84-40973ae1fe15">
+  <content>{
+  "powerpagesitelanguageid": "f1651072-f543-4c06-86b5-a80aa9627f75",
+  "display_name": "Logo URL",
+  "value": "/Money-outline.png"
+}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Logo URL</name>
+  <powerpagecomponenttype>7</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6</powerpagesiteid>
+  </powerpagesiteid>
+  <powerpagesitelanguageid>
+    <powerpagesitelanguageid>f1651072-f543-4c06-86b5-a80aa9627f75</powerpagesitelanguageid>
+  </powerpagesitelanguageid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

@@ -1,0 +1,11 @@
+<powerpagecomponent powerpagecomponentid="9bc934ba-af0e-4733-a1df-50a2e67e554e">
+  <content>{"importsequencenumber":3}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Authentication/Registration/LoginButtonAuthenticationType</name>
+  <powerpagecomponenttype>9</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6</powerpagesiteid>
+  </powerpagesiteid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

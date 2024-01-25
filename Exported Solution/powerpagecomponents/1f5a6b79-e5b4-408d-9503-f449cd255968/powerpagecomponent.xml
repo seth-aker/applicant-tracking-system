@@ -1,0 +1,11 @@
+<powerpagecomponent powerpagecomponentid="1f5a6b79-e5b4-408d-9503-f449cd255968">
+  <content>{"description":"Set whether the footer web template is output cached.","value":"True"}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Footer/OutputCache/Enabled</name>
+  <powerpagecomponenttype>9</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6</powerpagesiteid>
+  </powerpagesiteid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

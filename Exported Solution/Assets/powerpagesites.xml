@@ -1,0 +1,11 @@
+<powerpagesites>
+  <powerpagesite powerpagesiteid="7e6cbf7f-59af-4d81-99b2-7df7b5a27d5c">
+    <content>{"defaultlanguage":"cff73c28-7077-4f3d-95ea-2592844e6a71","footerwebtemplateid":"e880b611-82b4-4a29-a042-d462448c1881","headerwebtemplateid":"e1038464-d3ab-40f0-9d5a-90b2882d174f","statecode":0,"statuscode":1,"website_language":1033}</content>
+    <datamodelversion>2.0</datamodelversion>
+    <iscustomizable>1</iscustomizable>
+    <name>Horizon Enterprises Job Site - horizonenterprisesjobsite</name>
+    <primarydomainname>horizonenterprisesjobsite.powerappsportals.com</primarydomainname>
+    <statecode>0</statecode>
+    <statuscode>1</statuscode>
+  </powerpagesite>
+</powerpagesites>

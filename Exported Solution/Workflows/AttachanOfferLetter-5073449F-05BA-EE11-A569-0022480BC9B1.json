@@ -1,0 +1,244 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "apptrack_sharedcommondataserviceforapps_ff360"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      },
+      "shared_office365_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "apptrack_sharedoffice365_2a031"
+        },
+        "api": {
+          "name": "shared_office365"
+        }
+      },
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "apptrack_sharedcommondataserviceforapps_42216"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_a_row_is_added,_modified_or_deleted": {
+          "metadata": {
+            "operationMetadataId": "3f035d16-cbe2-4511-ba85-f82046b5e2aa"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "apptrack_interview",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "apptrack_offerletter"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Condition": {
+          "actions": {
+            "Get_Job_Application_Details_by_ID": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "5ba09dc7-de28-4a97-88eb-6f0c31857d44"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "GetItem",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "apptrack_jobapplications",
+                  "recordId": "@triggerOutputs()?['body/_apptrack_applicationid_value']"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Send_an_email_(V2)": {
+              "runAfter": {
+                "Get_Hiring_Manager_Information": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "e348b3ad-6196-4e65-a44c-01529f57c2c4"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_office365_1",
+                  "operationId": "SendEmailV2",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+                },
+                "parameters": {
+                  "emailMessage/To": "@outputs('Get_Job_Application_Details_by_ID')?['body/emailaddress']",
+                  "emailMessage/Subject": "Horizon Enterprises: Job Offer",
+                  "emailMessage/Body": "<p>Hello @{outputs('Get_Job_Application_Details_by_ID')?['body/apptrack_applicantname']},<br>\n<br>\nWe at Horizon Enterprises would like to extend an offer for the position of@{outputs('Get_Job_Listing_by_ID')?['body/apptrack_positiontitle']}. Congratulations and thank you for your interest in our company. We look forward to working with you.<br>\n<br>\nAttached below is your official offer letter with more details.<br>\nPlease respond to @{outputs('Get_Hiring_Manager_Information')?['body/fullname']} at @{outputs('Get_Hiring_Manager_Information')?['body/internalemailaddress']} within the next 48 hours with your decision.<br>\n<br>\nBest,<br>\nHorizon Enterprises<br>\n</p>",
+                  "emailMessage/Attachments": [
+                    {
+                      "Name": "@{outputs('Get_Job_Application_Details_by_ID')?['body/apptrack_applicantname']}-Offer Letter.pdf",
+                      "ContentBytes": "@body('Download_a_file_or_an_image')"
+                    }
+                  ],
+                  "emailMessage/Importance": "Normal"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Get_Job_Listing_by_ID": {
+              "runAfter": {
+                "Get_Job_Application_Details_by_ID": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "c157b146-2587-4050-8a85-a4f634d85d12"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "GetItem",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "apptrack_joblistings",
+                  "recordId": "@outputs('Get_Job_Application_Details_by_ID')?['body/_apptrack_joblisting_value']"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Update_a_row": {
+              "runAfter": {
+                "Send_an_email_(V2)": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "27fc3163-7339-4a54-92bc-807d66546758"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "UpdateRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "apptrack_jobapplications",
+                  "recordId": "@outputs('Get_Job_Application_Details_by_ID')?['body/apptrack_jobapplicationid']",
+                  "item/apptrack_status": 578500005
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Download_a_file_or_an_image": {
+              "runAfter": {
+                "Get_Job_Listing_by_ID": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "b97e2993-754f-4b80-9b27-fa8437e74d25"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "GetEntityFileImageFieldContent",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "apptrack_interviews",
+                  "recordId": "@triggerOutputs()?['body/apptrack_interviewid']",
+                  "fileImageFieldName": "apptrack_offerletter"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Get_Hiring_Manager_Information": {
+              "runAfter": {
+                "Download_a_file_or_an_image": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "d62ed98d-0e93-4462-a4a2-515d91cc3e7d"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "GetItem",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "systemusers",
+                  "recordId": "@outputs('Get_Job_Listing_by_ID')?['body/_apptrack_hiringmanager_value']"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {},
+          "expression": {
+            "and": [
+              {
+                "not": {
+                  "equals": [
+                    "@triggerOutputs()?['body/apptrack_offerletter']",
+                    "@null"
+                  ]
+                }
+              },
+              {
+                "equals": [
+                  "@triggerOutputs()?['body/apptrack_extendoffer2']",
+                  578500000
+                ]
+              }
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "cfa54964-88b7-4aba-9ad4-64b0e7d34f95"
+          },
+          "type": "If"
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

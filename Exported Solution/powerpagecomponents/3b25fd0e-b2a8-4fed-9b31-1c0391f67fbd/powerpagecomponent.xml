@@ -1,0 +1,11 @@
+<powerpagecomponent powerpagecomponentid="3b25fd0e-b2a8-4fed-9b31-1c0391f67fbd">
+  <content>{"importsequencenumber":5}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Authentication/OpenAuth/Twitter/ConsumerKey</name>
+  <powerpagecomponenttype>9</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6</powerpagesiteid>
+  </powerpagesiteid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

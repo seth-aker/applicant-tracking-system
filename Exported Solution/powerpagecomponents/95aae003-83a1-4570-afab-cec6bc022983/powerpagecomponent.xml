@@ -1,0 +1,11 @@
+<powerpagecomponent powerpagecomponentid="95aae003-83a1-4570-afab-cec6bc022983">
+  <content>{"disablepagevalidation":false,"displayimageonly":false,"displayorder":2,"displaypagechildlinks":false,"openinnewwindow":false,"publishingstateid":"b4a2ed43-219b-4098-95c7-e84c8f093175","robotsfollowlink":true,"weblinksetid":"8c2c5d36-e4eb-4f35-bfe7-79395cf5b963"}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>About Us</name>
+  <powerpagecomponenttype>5</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6</powerpagesiteid>
+  </powerpagesiteid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

@@ -1,0 +1,11 @@
+<powerpagecomponent powerpagecomponentid="0c070f5c-4cc5-4a58-9e10-6cd5f2c73e47">
+  <content>{"description":"Sets whether or not the portal can redirect the user to the profile page after successful sign-in. By default, it is set to true.","value":"true"}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Authentication/Registration/ProfileRedirectEnabled</name>
+  <powerpagecomponenttype>9</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>7e6cbf7f-59af-4d81-99b2-7df7b5a27d5c</powerpagesiteid>
+  </powerpagesiteid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

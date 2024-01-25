@@ -1,0 +1,29 @@
+<powerpagecomponent powerpagecomponentid="805a3437-504c-18c4-c5e1-de9a17e80963">
+  <content>{
+  "displayorder": 3,
+  "customcss": "",
+  "customjavascript": "",
+  "pagetemplateid": "b2741266-3a58-42aa-8539-5c3cf71f1bd4",
+  "parentpageid": "ed87d191-0fbf-4d0e-8c1c-085306d6a759",
+  "partialurl": "Applicant-Job-Submission-Page-deleted",
+  "isroot": true,
+  "title": "Applicant Job Submission Page",
+  "summary": "&lt;p&gt;This is a sample landing page designed to be a starting point for your website&lt;/p&gt;",
+  "copy": "",
+  "publishingstateid": "2a0ca4d2-9e59-436a-bcef-80596bd316ab",
+  "enablerating": false,
+  "enabletracking": false,
+  "excludefromsearch": false,
+  "hiddenfromsitemap": true,
+  "sharedpageconfiguration": false
+}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Applicant Job Submission Page-deleted</name>
+  <powerpagecomponenttype>2</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>7e6cbf7f-59af-4d81-99b2-7df7b5a27d5c</powerpagesiteid>
+  </powerpagesiteid>
+  <searchcontent>Applicant Job Submission PageApplicant Job Submission Page-deleted</searchcontent>
+  <statecode>1</statecode>
+  <statuscode>2</statuscode>
+</powerpagecomponent>

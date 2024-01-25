@@ -1,0 +1,124 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_office365_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "apptrack_sharedoffice365_876b2"
+        },
+        "api": {
+          "name": "shared_office365"
+        }
+      },
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "apptrack_sharedcommondataserviceforapps_a7b0b"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_a_row_is_added,_modified_or_deleted": {
+          "metadata": {
+            "operationMetadataId": "721b583f-9a50-49b1-b420-ad241879c192"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 1,
+              "subscriptionRequest/entityname": "apptrack_jobapplication",
+              "subscriptionRequest/scope": 4
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Send_an_email_(V2)": {
+          "runAfter": {
+            "Delay": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "5e43ad66-ffbe-4bda-9065-62acedb5f5c8"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_office365_1",
+              "operationId": "SendEmailV2",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+            },
+            "parameters": {
+              "emailMessage/To": "@triggerOutputs()?['body/emailaddress']",
+              "emailMessage/Subject": "Recent Job Application for @{outputs('Get_a_row_by_ID')?['body/apptrack_positiontitle']} at Horizon Enterprises",
+              "emailMessage/Body": "<p>Hello @{triggerOutputs()?['body/apptrack_applicantname']},<br>\n<br>\nYou have recently applied for the following job:<br>\nPosition Title: @{outputs('Get_a_row_by_ID')?['body/apptrack_positiontitle']}<br>\n<br>\nJob Description: @{outputs('Get_a_row_by_ID')?['body/apptrack_jobdescription']}<br>\n<br>\nExperience Level: @{outputs('Get_a_row_by_ID')?['body/apptrack_experiencelevel']} Years<br>\n<br>\nSalary: $@{outputs('Get_a_row_by_ID')?['body/apptrack_salary']}<br>\n<br>\nYou provided the following infromation:<br>\nName: @{triggerOutputs()?['body/apptrack_applicantname']}<br>\n<br>\nEmail: @{triggerOutputs()?['body/emailaddress']}<br>\n<br>\nLinkedIn: @{triggerOutputs()?['body/apptrack_linkedinprofile']}<br>\n<br>\n<strong>You will recieve an email regarding your application within 1-2 weeks.</strong><br>\n<br>\nThank you for applying,<br>\nHorizon Solutions</p>",
+              "emailMessage/Importance": "Normal"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Get_a_row_by_ID": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "12a9e35b-7562-4198-90cb-2a59ab5b21b7"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "apptrack_joblistings",
+              "recordId": "@triggerOutputs()?['body/_apptrack_joblisting_value']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Delay": {
+          "runAfter": {
+            "Get_a_row_by_ID": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "42438051-a56e-4a81-9440-b419153db3e3"
+          },
+          "type": "Wait",
+          "inputs": {
+            "interval": {
+              "count": 1,
+              "unit": "Minute"
+            }
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

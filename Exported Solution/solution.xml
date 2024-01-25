@@ -1,0 +1,712 @@
+<ImportExportXml version="9.2.23121.196" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SolutionManifest>
+    <UniqueName>ApplicantTrackingSystem</UniqueName>
+    <LocalizedNames>
+      <LocalizedName description="Applicant Tracking System" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="Upgrade of Applicant Tracking System" languagecode="1033" />
+    </Descriptions>
+    <Version>1.0.0.1</Version>
+    <Managed>0</Managed>
+    <Publisher>
+      <UniqueName>Seth_Aker</UniqueName>
+      <LocalizedNames>
+        <LocalizedName description="Seth Aker" languagecode="1033" />
+      </LocalizedNames>
+      <Descriptions />
+      <EMailAddress xsi:nil="true"></EMailAddress>
+      <SupportingWebsiteUrl xsi:nil="true"></SupportingWebsiteUrl>
+      <CustomizationPrefix>apptrack</CustomizationPrefix>
+      <CustomizationOptionValuePrefix>57850</CustomizationOptionValuePrefix>
+      <Addresses>
+        <Address>
+          <AddressNumber>1</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country xsi:nil="true"></Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+        <Address>
+          <AddressNumber>2</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country xsi:nil="true"></Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+      </Addresses>
+    </Publisher>
+    <RootComponents>
+      <RootComponent type="1" schemaName="apptrack_address" behavior="0" />
+      <RootComponent type="1" schemaName="apptrack_company" behavior="0" />
+      <RootComponent type="1" schemaName="apptrack_equipmentinventory" behavior="0" />
+      <RootComponent type="1" schemaName="apptrack_interview" behavior="0" />
+      <RootComponent type="1" schemaName="apptrack_interviewflow" behavior="0" />
+      <RootComponent type="1" schemaName="apptrack_jobapplication" behavior="0" />
+      <RootComponent type="1" schemaName="businessunit" behavior="0" />
+      <RootComponent type="1" schemaName="contact" behavior="0" />
+      <RootComponent type="1" schemaName="systemuser" behavior="1" />
+      <RootComponent type="9" schemaName="apptrack_applicationstatus" behavior="0" />
+      <RootComponent type="9" schemaName="apptrack_employmenttype" behavior="0" />
+      <RootComponent type="9" schemaName="apptrack_equipmentcondition" behavior="0" />
+      <RootComponent type="9" schemaName="apptrack_organizationroles" behavior="0" />
+      <RootComponent type="29" id="{37c042e6-12b7-ee11-a569-0022480bc9b1}" behavior="0" />
+      <RootComponent type="29" id="{5073449f-05ba-ee11-a569-0022480bc9b1}" behavior="0" />
+      <RootComponent type="29" id="{8b8a8db0-2abb-ee11-a569-0022480bc9b1}" behavior="0" />
+      <RootComponent type="29" id="{9010250e-a5b9-ee11-a569-0022480bc9b1}" behavior="0" />
+      <RootComponent type="29" id="{94e28354-53b9-ee11-a569-0022480bc9b1}" behavior="0" />
+      <RootComponent type="29" id="{b01d594f-1db7-ee11-a569-0022480bc9b1}" behavior="0" />
+      <RootComponent type="29" id="{d0c554f9-ffb9-ee11-a569-0022480bc9b1}" behavior="0" />
+      <RootComponent type="29" id="{d80832a0-2cbb-ee11-a569-0022480bc9b1}" behavior="0" />
+      <RootComponent type="29" id="{f19a792a-09b7-ee11-a569-0022480bc9b1}" behavior="0" />
+      <RootComponent type="29" id="{fa00f8bb-03ba-ee11-a569-0022480bc9b1}" behavior="0" />
+      <RootComponent type="62" schemaName="apptrack_ApplicantsDeploymentDecision" behavior="0" />
+      <RootComponent type="62" schemaName="apptrack_CreateJobListings" behavior="0" />
+      <RootComponent type="80" schemaName="apptrack_CreateJobListings" behavior="0" />
+    </RootComponents>
+    <MissingDependencies>
+      <MissingDependency>
+        <Required type="1" schemaName="adx_externalidentity" displayName="External Identity" solution="PowerPages_RuntimeCore (1.0.2308.4)" />
+        <Dependent type="1" schemaName="contact" displayName="Contact" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="adx_invitation" displayName="Invitation" solution="PowerPages_RuntimeCore (1.0.2308.4)" />
+        <Dependent type="1" schemaName="contact" displayName="Contact" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="adx_webformsession" displayName="Multistep Form Session" solution="PowerPages_RuntimeCore (1.0.2308.4)" />
+        <Dependent type="1" schemaName="contact" displayName="Contact" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="apptrack_applicantaccount" displayName="Applicant Account" solution="Active" />
+        <Dependent type="1" schemaName="apptrack_address" displayName="Address" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="apptrack_applicantaccount" displayName="Applicant Account" solution="Active" />
+        <Dependent type="10" schemaName="apptrack_contact_ApplicantAccount_apptrack_applica" displayName="apptrack_contact_ApplicantAccount_apptrack_applica" parentSchemaName="apptrack_applicantaccount" parentDisplayName="Applicant Account" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="apptrack_joblisting" displayName="Job Listing" solution="Active" />
+        <Dependent type="1" schemaName="apptrack_company" displayName="Company Location" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="apptrack_joblisting" displayName="Job Listing" solution="Active" />
+        <Dependent type="10" schemaName="apptrack_interview_JobListing_apptrack_joblisting" displayName="apptrack_interview_JobListing_apptrack_joblisting" parentSchemaName="apptrack_joblisting" parentDisplayName="Job Listing" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="apptrack_joblisting" displayName="Job Listing" solution="Active" />
+        <Dependent type="10" schemaName="apptrack_jobapplication_JobListing_apptrack_joblis" displayName="apptrack_jobapplication_JobListing_apptrack_joblis" parentSchemaName="apptrack_joblisting" parentDisplayName="Job Listing" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="apptrack_joblisting" displayName="Job Listing" solution="Active" />
+        <Dependent type="2" schemaName="apptrack_cutoffdate" displayName="Cutoff Date" parentSchemaName="apptrack_jobapplication" parentDisplayName="Job Application" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="apptrack_joblisting" displayName="Job Listing" solution="Active" />
+        <Dependent type="26" schemaName="Awaiting Interview Scheduling" displayName="Awaiting Interview Scheduling" parentSchemaName="apptrack_interview" parentDisplayName="Interview" id="{727e2153-74b9-ee11-a569-0022480bc9b1}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="apptrack_joblisting" displayName="Job Listing" solution="Active" />
+        <Dependent type="26" schemaName="Upcomming Interviews" displayName="Upcomming Interviews" parentSchemaName="apptrack_interview" parentDisplayName="Interview" id="{cac291fa-f013-441d-b025-59c4853f5b52}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="apptrack_joblisting" displayName="Job Listing" solution="Active" />
+        <Dependent type="29" displayName="Job Application Status Updates" id="{37c042e6-12b7-ee11-a569-0022480bc9b1}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="apptrack_joblisting" displayName="Job Listing" solution="Active" />
+        <Dependent type="29" displayName="Attach an Offer Letter" id="{5073449f-05ba-ee11-a569-0022480bc9b1}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="apptrack_joblisting" displayName="Job Listing" solution="Active" />
+        <Dependent type="29" displayName="Successful Job Application Confirmation Email" id="{9010250e-a5b9-ee11-a569-0022480bc9b1}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="apptrack_joblisting" displayName="Job Listing" solution="Active" />
+        <Dependent type="29" displayName="Clear old listings" id="{94e28354-53b9-ee11-a569-0022480bc9b1}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="apptrack_joblisting" displayName="Job Listing" solution="Active" />
+        <Dependent type="29" displayName="Create New Employee From Applicant" id="{b01d594f-1db7-ee11-a569-0022480bc9b1}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="apptrack_joblisting" displayName="Job Listing" solution="Active" />
+        <Dependent type="29" displayName="New Application Notification and Approval Request" id="{f19a792a-09b7-ee11-a569-0022480bc9b1}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="apptrack_joblisting" displayName="Job Listing" solution="Active" />
+        <Dependent type="29" displayName="Set Status to Interviewing when Date Confirmed" id="{fa00f8bb-03ba-ee11-a569-0022480bc9b1}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="apptrack_joblisting" displayName="Job Listing" solution="Active" />
+        <Dependent type="62" schemaName="apptrack_CreateJobListings" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="apptrack_joblisting" displayName="Job Listing" solution="Active" />
+        <Dependent type="80" schemaName="apptrack_CreateJobListings" displayName="Job Application Manager" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="apptrack_joblisting" displayName="Job Listing" solution="Active" />
+        <Dependent type="powerpagecomponent" id="{478187cd-76e4-4f5d-811f-547f67a54662}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="apptrack_joblisting" displayName="Job Listing" solution="Active" />
+        <Dependent type="powerpagecomponent" id="{656fa427-5d7f-49b3-a96e-c2de820c4c9e}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="apptrack_joblisting" displayName="Job Listing" solution="Active" />
+        <Dependent type="powerpagecomponent" id="{c89bd1fc-b11d-4863-ab09-6ebf96646f5d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="apptrack_applicantaccountid" displayName="Applicant Account" parentSchemaName="apptrack_applicantaccount" parentDisplayName="Applicant Account" solution="Active" />
+        <Dependent type="10" schemaName="apptrack_contact_ApplicantAccount_apptrack_applica" displayName="apptrack_contact_ApplicantAccount_apptrack_applica" parentSchemaName="apptrack_applicantaccount" parentDisplayName="Applicant Account" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="apptrack_name" displayName="Name" parentSchemaName="apptrack_applicantaccount" parentDisplayName="Applicant Account" solution="Active" />
+        <Dependent type="10" schemaName="apptrack_contact_ApplicantAccount_apptrack_applica" displayName="apptrack_contact_ApplicantAccount_apptrack_applica" parentSchemaName="apptrack_applicantaccount" parentDisplayName="Applicant Account" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="apptrack_cutoffdate" displayName="Cutoff Date" parentSchemaName="apptrack_joblisting" parentDisplayName="Job Listing" solution="Active" />
+        <Dependent type="2" schemaName="apptrack_cutoffdate" displayName="Cutoff Date" parentSchemaName="apptrack_jobapplication" parentDisplayName="Job Application" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="apptrack_joblistingid" displayName="Job Listing" parentSchemaName="apptrack_joblisting" parentDisplayName="Job Listing" solution="Active" />
+        <Dependent type="10" schemaName="apptrack_interview_JobListing_apptrack_joblisting" displayName="apptrack_interview_JobListing_apptrack_joblisting" parentSchemaName="apptrack_joblisting" parentDisplayName="Job Listing" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="apptrack_joblistingid" displayName="Job Listing" parentSchemaName="apptrack_joblisting" parentDisplayName="Job Listing" solution="Active" />
+        <Dependent type="10" schemaName="apptrack_jobapplication_JobListing_apptrack_joblis" displayName="apptrack_jobapplication_JobListing_apptrack_joblis" parentSchemaName="apptrack_joblisting" parentDisplayName="Job Listing" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="apptrack_joblistingid" displayName="Job Listing" parentSchemaName="apptrack_joblisting" parentDisplayName="Job Listing" solution="Active" />
+        <Dependent type="2" schemaName="apptrack_cutoffdate" displayName="Cutoff Date" parentSchemaName="apptrack_jobapplication" parentDisplayName="Job Application" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="apptrack_joblistingid" displayName="Job Listing" parentSchemaName="apptrack_joblisting" parentDisplayName="Job Listing" solution="Active" />
+        <Dependent type="26" schemaName="Awaiting Interview Scheduling" displayName="Awaiting Interview Scheduling" parentSchemaName="apptrack_interview" parentDisplayName="Interview" id="{727e2153-74b9-ee11-a569-0022480bc9b1}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="apptrack_joblistingid" displayName="Job Listing" parentSchemaName="apptrack_joblisting" parentDisplayName="Job Listing" solution="Active" />
+        <Dependent type="26" schemaName="Upcomming Interviews" displayName="Upcomming Interviews" parentSchemaName="apptrack_interview" parentDisplayName="Interview" id="{cac291fa-f013-441d-b025-59c4853f5b52}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="apptrack_positiontitle" displayName="Position Title" parentSchemaName="apptrack_joblisting" parentDisplayName="Job Listing" solution="Active" />
+        <Dependent type="10" schemaName="apptrack_interview_JobListing_apptrack_joblisting" displayName="apptrack_interview_JobListing_apptrack_joblisting" parentSchemaName="apptrack_joblisting" parentDisplayName="Job Listing" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="apptrack_positiontitle" displayName="Position Title" parentSchemaName="apptrack_joblisting" parentDisplayName="Job Listing" solution="Active" />
+        <Dependent type="10" schemaName="apptrack_jobapplication_JobListing_apptrack_joblis" displayName="apptrack_jobapplication_JobListing_apptrack_joblis" parentSchemaName="apptrack_joblisting" parentDisplayName="Job Listing" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="apptrack_positiontitle" displayName="Position Title" parentSchemaName="apptrack_joblisting" parentDisplayName="Job Listing" solution="Active" />
+        <Dependent type="26" schemaName="Awaiting Interview Scheduling" displayName="Awaiting Interview Scheduling" parentSchemaName="apptrack_interview" parentDisplayName="Interview" id="{727e2153-74b9-ee11-a569-0022480bc9b1}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="apptrack_positiontitle" displayName="Position Title" parentSchemaName="apptrack_joblisting" parentDisplayName="Job Listing" solution="Active" />
+        <Dependent type="26" schemaName="Upcomming Interviews" displayName="Upcomming Interviews" parentSchemaName="apptrack_interview" parentDisplayName="Interview" id="{cac291fa-f013-441d-b025-59c4853f5b52}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="msa_managingpartnerid" displayName="Managing Partner" parentSchemaName="contact" parentDisplayName="Contact" solution="PowerPages_RuntimeCoreDependencies (1.0.2305.1)" />
+        <Dependent type="2" schemaName="parentcustomerid" displayName="Company Name" parentSchemaName="contact" parentDisplayName="Contact" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Job Listing Advanced Find View" displayName="Job Listing Advanced Find View" parentSchemaName="apptrack_joblisting" parentDisplayName="Job Listing" solution="Active" id="{012405fb-0870-4049-affd-8f2a899e32ce}" />
+        <Dependent type="80" schemaName="apptrack_CreateJobListings" displayName="Job Application Manager" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Quick Find Active Job Listings" displayName="Quick Find Active Job Listings" parentSchemaName="apptrack_joblisting" parentDisplayName="Job Listing" solution="Active" id="{156a5465-2794-423e-9053-0562ad290e30}" />
+        <Dependent type="80" schemaName="apptrack_CreateJobListings" displayName="Job Application Manager" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Job Listing Associated View" displayName="Job Listing Associated View" parentSchemaName="apptrack_joblisting" parentDisplayName="Job Listing" solution="Active" id="{47d77b1c-70bb-44e5-9081-baf584579aae}" />
+        <Dependent type="80" schemaName="apptrack_CreateJobListings" displayName="Job Application Manager" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Active Web Job Listings" displayName="Active Web Job Listings" parentSchemaName="apptrack_joblisting" parentDisplayName="Job Listing" solution="Active" id="{5c05cd63-7717-4834-939f-e062967c8fba}" />
+        <Dependent type="80" schemaName="apptrack_CreateJobListings" displayName="Job Application Manager" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Active Web Job Listings" displayName="Active Web Job Listings" parentSchemaName="apptrack_joblisting" parentDisplayName="Job Listing" solution="Active" id="{5c05cd63-7717-4834-939f-e062967c8fba}" />
+        <Dependent type="powerpagecomponent" id="{c89bd1fc-b11d-4863-ab09-6ebf96646f5d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Inactive Job Listings" displayName="Inactive Job Listings" parentSchemaName="apptrack_joblisting" parentDisplayName="Job Listing" solution="Active" id="{a9d10f0f-f600-4a16-a232-ab03c46be18c}" />
+        <Dependent type="80" schemaName="apptrack_CreateJobListings" displayName="Job Application Manager" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Job Listing Lookup View" displayName="Job Listing Lookup View" parentSchemaName="apptrack_joblisting" parentDisplayName="Job Listing" solution="Active" id="{da920d8a-9d9b-4d1c-89d7-cdff1bd8c664}" />
+        <Dependent type="80" schemaName="apptrack_CreateJobListings" displayName="Job Application Manager" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="60" displayName="Job Listing Details Form" parentDisplayName="Job Listing" solution="Active" id="{199b6c14-55b9-ee11-a569-0022480bc9b1}" />
+        <Dependent type="powerpagecomponent" id="{656fa427-5d7f-49b3-a96e-c2de820c4c9e}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="60" displayName="Profile Web Form (Enhanced)" parentDisplayName="Contact" solution="PowerPages_RuntimeCore (1.0.2308.4)" id="{bddc0100-0dbe-4562-aafe-31d08c8ab506}" />
+        <Dependent type="60" displayName="Profile Web Form (Enhanced)" parentDisplayName="Contact" id="{bddc0100-0dbe-4562-aafe-31d08c8ab506}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="msdyn_/Images/AppModule_Default_Icon.png" displayName="msdyn_/Images/AppModule_Default_Icon.png" solution="AppModuleWebResources (2.5)" />
+        <Dependent type="80" schemaName="apptrack_CreateJobListings" displayName="Job Application Manager" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="9" schemaName="cr977_activeinactive" displayName="Active/Inactive" solution="Active" />
+        <Dependent type="2" schemaName="cr977_status" displayName="Status" parentSchemaName="contact" parentDisplayName="Contact" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{01188126-8080-40c0-a511-d595093b742f}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{019861b2-9db9-47a7-9589-c989a1baa953}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{02b72756-73d6-4020-81b2-4d18534575e6}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{061edf22-c110-45b8-879a-5bce91cbae99}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{0987659e-3751-4017-9fef-2569823fcd73}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{0f1b05c4-ff68-48b5-95f8-878ae5743644}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{105c1ee0-ba38-497a-83fd-16028fb88545}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{12d07ff8-fcf0-4021-a4a1-2f617ebf4e38}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{13cfb6a0-d408-4bd9-85ba-b058b6ea3906}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{185e767b-d444-49f4-9ac0-390abb8c869b}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{1f5a6b79-e5b4-408d-9503-f449cd255968}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{20d0149c-0430-4bfa-a216-0a3750093f22}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{218f53f6-6cfc-4ecd-8dc9-44801ce85296}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{23a874d9-0542-4f43-a3b0-9a2069021773}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{2640344b-3d7e-45b6-9737-e6498aaa0e8b}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{27bc541b-737a-4d14-8651-af0b01868555}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{2a64eb7e-2058-4303-92ec-64ee3b8761b9}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{2b18a302-b6ce-4591-888f-f114b1262938}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{2e948ee8-36cc-4b1c-a250-5caaed2ba5d2}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{308bb1ba-f877-4358-b616-07e65deeb891}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{31c04e4d-f4ec-48a2-9cd2-961016eefe13}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{32d5239a-5d1a-4d59-bdb5-a03cee23483b}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{34f1379d-09b2-46f7-8e86-23f55d964a71}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{3b25fd0e-b2a8-4fed-9b31-1c0391f67fbd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{3b91dfb4-7aee-40b3-93d2-597b2776e96e}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{416b9325-b737-49a9-8d96-269953bf527f}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{42b35b67-09de-4916-9d13-a13c674a0b6c}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{436bb063-5ccf-44b5-90fa-de144af3d06b}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{451e4c4e-3a2c-4a05-bde4-c684a4aca261}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{456bf99a-0e48-48ff-b9cb-54aca5297516}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{4d384625-f9f8-427a-8fd8-3068f9125397}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{4d40ba75-920f-4cfd-a569-85f068019cd8}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{52b4d58d-576c-44f3-8fe1-8dc55de25ef9}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{538fb03d-3fe1-4df2-9e37-3268873a6eb5}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{55976a54-1570-4eaf-a620-14ee192d32b3}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{572b5c46-b9ab-45ca-9b76-fe69659b7f2b}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{5737b5ea-26b2-a788-a980-8ad91b987041}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{5e532105-cbfd-43b8-b235-5e62cef8b061}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{625b1341-707c-4a17-a999-1b8a39074e2b}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{6561ed5d-5a9d-4144-9977-39e1e94b957a}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{6989c8f5-b378-4ab7-9c54-1fa61c45988d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{6d6f2d39-3b35-4a68-a0f1-83c1a5765d8e}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{6e850299-5c00-4b5d-bab0-947be5720c3d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{6eed44ae-9058-420d-9f84-40973ae1fe15}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{749d289c-87d3-4794-aab4-d3e480d23bfe}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{7a94fb4d-66ff-4751-a24a-07bb01f270e1}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{7c8a066b-2c11-4bee-a85b-dbbba027b0d1}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{7de7ec7b-ea74-4be9-a49d-972a2345a710}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{85559ad7-e464-45aa-b596-1d5a5e5397a6}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{8b924b80-2859-41fc-90f5-849615e68f26}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{8bc6c7c3-3ee1-4b83-bfa0-dfc11dfd63d5}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{8c2c5d36-e4eb-4f35-bfe7-79395cf5b963}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{8db1b688-5c9d-4476-8353-742ccb01747f}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{8edbb1f0-6cc7-4ac0-8a45-697f7a43dd94}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{90ae2578-617b-4e7c-8db6-d8ae0614cdbb}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{940e386c-2255-4475-8d1d-9d9eb08d16c7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{95aae003-83a1-4570-afab-cec6bc022983}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{979cf4e8-92ba-41e0-9da8-7e59848aaed0}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{97b20a58-cb11-41d0-8938-59d795a15614}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{982c5777-2b2e-418f-87b2-956b79b9f23d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{9bc934ba-af0e-4733-a1df-50a2e67e554e}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{9c143b8f-3a40-4adc-b048-ada4d7955e72}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{9c4590cd-b9d2-4557-9ba3-569e5b58b438}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{9c502a5c-ff31-4ac4-b6b2-535608b5710b}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{9f8a88c2-dae8-4dc0-98b0-d4ba480ae017}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{9fc7d741-074c-4d78-b276-42fc4b61b50f}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{9ff5f36a-70f1-4a25-a5e8-1e9ebdaa85d2}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{a25da998-b72c-4d86-8a3c-224b5f47e8fd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{a4b73dd7-0edd-4feb-a400-62c58b63b238}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{a502c73f-cd5c-492e-bc56-57454a524e8a}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{a592508b-a2c7-4b23-a9c8-8edbf9135b00}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{a596b8fc-0357-4b33-b5ed-7cd225cdf447}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{a8d1e6b1-cc44-4ac2-bc62-d5addd912cdd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{a9aa4479-5faf-476b-b69f-6e0400b54f34}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{ad31bdcf-6219-4496-aea1-1f315e5120ce}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{b00b056e-dac8-43d7-b927-d3bacc34159d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{b420685c-e290-4e5e-ae09-0d966d990f07}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{b4a2ed43-219b-4098-95c7-e84c8f093175}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{b6b4973c-a70e-4643-b49e-d614debfeb93}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{b9d2a7c2-60ff-484f-aba8-b1150e318959}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{c9764516-f065-46d8-a222-7d150076a15f}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{c9bd77ae-842e-4c00-90af-875a9b5ab7e0}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{cae40ff2-1a8f-46f6-9871-ff5568408adb}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{cc134c18-3636-4d48-b7b5-94fe1a962e4f}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{ce46ab73-5698-4ee8-9279-1789c68e89d9}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{d6c56b52-7fd4-43c1-8359-3a7dd4c029fc}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{dab0a3e5-1efc-429c-9542-5e8b999f43ab}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{df0c9be6-1633-4dae-a5bc-4d0f0815d3fa}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{e1bd51a2-837d-4202-aa4e-c43c5a018fa0}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{e38f3e22-d84c-4ca1-bc82-0e5217697ecd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{e4f180fe-a2f6-4518-9dc1-5a34996393c4}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{e6a7952e-54fd-40f0-a0cd-27979510007a}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{eb1afe00-9d06-4d71-b365-c9dad2f19e4d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{eb40382c-0539-4416-ad4b-49575386dcca}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{ec34a8a4-3351-47ca-89c1-c9ede5c4ab24}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{ec805b76-1aea-4a2d-8870-cf6ed38563e1}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{ed6dca3f-3af8-47a2-86d5-3f92bc195f39}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{f43529b5-163c-4b0e-9007-40bd8b0d4b03}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{f86a39b7-205e-4a26-8624-93839172dda3}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{fc54af34-06f0-4ceb-804a-890b1c424240}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{fcfca937-0042-4239-82b9-88ed5afa949e}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagecomponent" id="{ffca2dce-77cf-4314-a26b-dc8575b1dc7a}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="powerpagesite" solution="Active" id="{1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6}" />
+        <Dependent type="powerpagesitelanguage" id="{f1651072-f543-4c06-86b5-a80aa9627f75}" />
+      </MissingDependency>
+    </MissingDependencies>
+  </SolutionManifest>
+</ImportExportXml>

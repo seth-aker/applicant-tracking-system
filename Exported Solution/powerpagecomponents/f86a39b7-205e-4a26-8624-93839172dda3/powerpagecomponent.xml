@@ -1,0 +1,11 @@
+<powerpagecomponent powerpagecomponentid="f86a39b7-205e-4a26-8624-93839172dda3">
+  <content>{"disablepagevalidation":false,"displayimageonly":false,"displayorder":4,"displaypagechildlinks":false,"openinnewwindow":false,"publishingstateid":"b4a2ed43-219b-4098-95c7-e84c8f093175","robotsfollowlink":true,"weblinksetid":"8c2c5d36-e4eb-4f35-bfe7-79395cf5b963"}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Create Account</name>
+  <powerpagecomponenttype>5</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6</powerpagesiteid>
+  </powerpagesiteid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

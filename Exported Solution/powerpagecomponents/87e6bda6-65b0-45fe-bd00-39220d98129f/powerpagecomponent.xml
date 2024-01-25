@@ -1,0 +1,41 @@
+<powerpagecomponent powerpagecomponentid="87e6bda6-65b0-45fe-bd00-39220d98129f">
+  <content>{
+  "filecontent": null,
+  "copy": "&lt;div data-component-theme=\"\" id=\"i9rqi\" class=\"row sectionBlockLayout text-left\" style=\"display: flex; flex-wrap: wrap; margin: 0px; min-height: auto; padding: 8px;\"&gt;\n  &lt;div id=\"irr0g\" class=\"container\" style=\"display: flex; flex-wrap: wrap;\"&gt;\n    &lt;div id=\"i42ay\" class=\"col-md-12 columnBlockLayout\" style=\"word-break: break-word; flex-grow: 1; display: flex; flex-direction: column; min-width: 300px; padding: 16px; margin: 10px 0px;\"&gt;&lt;h2 id=\"ip07h\" style=\"text-align: left;\"&gt;Job Listings&lt;/h2&gt;&lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n&lt;div id=\"ifzcyh\" class=\"row sectionBlockLayout text-left\" style=\"display: flex; flex-wrap: wrap; margin: 0px; min-height: auto; padding: 8px;\"&gt;\n  &lt;div id=\"icibm3\" class=\"container\" style=\"padding: 0px; display: flex; flex-wrap: wrap;\"&gt;&lt;div id=\"iawpbc\" class=\"col-md-12 columnBlockLayout\" style=\"word-break: break-word; flex-grow: 1; display: flex; flex-direction: column; min-width: 300px; margin: 0px; padding: 16px;\"&gt;{% include 'entity_list' key: 'Active Web Job Listings' %}&lt;/div&gt;&lt;/div&gt;\n&lt;/div&gt;\n",
+  "displayorder": 1,
+  "enablerating": false,
+  "enabletracking": false,
+  "excludefromsearch": false,
+  "feedbackpolicy": 756150000,
+  "hiddenfromsitemap": false,
+  "isroot": false,
+  "pagetemplateid": "b2741266-3a58-42aa-8539-5c3cf71f1bd4",
+  "parentpageid": "9dd797f2-5dd0-4202-9684-89721e39dd99",
+  "partialurl": "Job-Listings-Page",
+  "publishingstateid": "2a0ca4d2-9e59-436a-bcef-80596bd316ab",
+  "rootwebpageid": "ab4a7047-051b-4fcb-a6a7-e35e588ff1db",
+  "sharedpageconfiguration": true,
+  "summary": "&lt;p&gt;This is a sample landing page designed to be a starting point for your website&lt;/p&gt;\r\n",
+  "title": "Subpage one"
+}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Job Listings Page</name>
+  <powerpagecomponenttype>2</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>7e6cbf7f-59af-4d81-99b2-7df7b5a27d5c</powerpagesiteid>
+  </powerpagesiteid>
+  <powerpagesitelanguageid>
+    <powerpagesitelanguageid>cff73c28-7077-4f3d-95ea-2592844e6a71</powerpagesitelanguageid>
+  </powerpagesitelanguageid>
+  <searchcontent>Subpage one&lt;div data-component-theme="" id="i9rqi" class="row sectionBlockLayout text-left" style="display: flex; flex-wrap: wrap; margin: 0px; min-height: auto; padding: 8px;"&gt;
+  &lt;div id="irr0g" class="container" style="display: flex; flex-wrap: wrap;"&gt;
+    &lt;div id="i42ay" class="col-md-12 columnBlockLayout" style="word-break: break-word; flex-grow: 1; display: flex; flex-direction: column; min-width: 300px; padding: 16px; margin: 10px 0px;"&gt;&lt;h2 id="ip07h" style="text-align: left;"&gt;Job Listings&lt;/h2&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="ifzcyh" class="row sectionBlockLayout text-left" style="display: flex; flex-wrap: wrap; margin: 0px; min-height: auto; padding: 8px;"&gt;
+  &lt;div id="icibm3" class="container" style="padding: 0px; display: flex; flex-wrap: wrap;"&gt;&lt;div id="iawpbc" class="col-md-12 columnBlockLayout" style="word-break: break-word; flex-grow: 1; display: flex; flex-direction: column; min-width: 300px; margin: 0px; padding: 16px;"&gt;{% include 'entity_list' key: 'Active Web Job Listings' %}&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+Job Listings Page</searchcontent>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

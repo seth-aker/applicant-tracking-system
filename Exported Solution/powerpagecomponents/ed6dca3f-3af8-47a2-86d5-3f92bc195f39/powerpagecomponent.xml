@@ -1,0 +1,11 @@
+<powerpagecomponent powerpagecomponentid="ed6dca3f-3af8-47a2-86d5-3f92bc195f39">
+  <content>{}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Job Postings</name>
+  <powerpagecomponenttype>13</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6</powerpagesiteid>
+  </powerpagesiteid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

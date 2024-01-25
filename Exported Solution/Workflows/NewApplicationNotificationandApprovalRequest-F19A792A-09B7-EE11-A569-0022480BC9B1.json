@@ -1,0 +1,279 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "apptrack_sharedcommondataserviceforapps_ff360"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      },
+      "shared_office365": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "apptrack_sharedoffice365_b891d"
+        },
+        "api": {
+          "name": "shared_office365"
+        }
+      },
+      "shared_approvals": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "apptrack_sharedapprovals_26945"
+        },
+        "api": {
+          "name": "shared_approvals"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_a_resume_is_uploaded": {
+          "metadata": {
+            "operationMetadataId": "4484664c-5440-4944-b938-a0a1c04de6c6"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 4,
+              "subscriptionRequest/entityname": "apptrack_jobapplication",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "apptrack_resume"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "If_resume_column_is_null": {
+          "actions": {},
+          "runAfter": {},
+          "else": {
+            "actions": {
+              "Get_Job_Listing_Row_by_ID": {
+                "runAfter": {},
+                "metadata": {
+                  "operationMetadataId": "a0ebe217-c1cd-4e99-9320-d40ee74ab09b"
+                },
+                "type": "OpenApiConnection",
+                "inputs": {
+                  "host": {
+                    "connectionName": "shared_commondataserviceforapps",
+                    "operationId": "GetItem",
+                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                  },
+                  "parameters": {
+                    "entityName": "apptrack_joblistings",
+                    "recordId": "@triggerOutputs()?['body/_apptrack_joblisting_value']"
+                  },
+                  "authentication": "@parameters('$authentication')"
+                }
+              },
+              "Get_Recruiter_by_ID": {
+                "runAfter": {
+                  "Get_Job_Listing_Row_by_ID": [
+                    "Succeeded"
+                  ]
+                },
+                "metadata": {
+                  "operationMetadataId": "89fb366d-4cd7-43ac-8bff-4c51d9d5fa2a"
+                },
+                "type": "OpenApiConnection",
+                "inputs": {
+                  "host": {
+                    "connectionName": "shared_commondataserviceforapps",
+                    "operationId": "GetItem",
+                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                  },
+                  "parameters": {
+                    "entityName": "systemusers",
+                    "recordId": "@outputs('Get_Job_Listing_Row_by_ID')?['body/_apptrack_recruiter_value']"
+                  },
+                  "authentication": "@parameters('$authentication')"
+                }
+              },
+              "Download_a_file_or_an_image": {
+                "runAfter": {
+                  "Get_Recruiter_by_ID": [
+                    "Succeeded"
+                  ]
+                },
+                "metadata": {
+                  "operationMetadataId": "c2e4a84c-d50b-44a6-bb97-a4a4935394b5"
+                },
+                "type": "OpenApiConnection",
+                "inputs": {
+                  "host": {
+                    "connectionName": "shared_commondataserviceforapps",
+                    "operationId": "GetEntityFileImageFieldContent",
+                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                  },
+                  "parameters": {
+                    "entityName": "apptrack_jobapplications",
+                    "recordId": "@triggerOutputs()?['body/apptrack_jobapplicationid']",
+                    "fileImageFieldName": "apptrack_resume"
+                  },
+                  "authentication": "@parameters('$authentication')"
+                }
+              },
+              "Send_an_email_(V2)": {
+                "runAfter": {
+                  "Download_a_file_or_an_image": [
+                    "Succeeded"
+                  ]
+                },
+                "metadata": {
+                  "operationMetadataId": "3d92e94d-0da9-4bc4-a6af-a43ec2132c39"
+                },
+                "type": "OpenApiConnection",
+                "inputs": {
+                  "host": {
+                    "connectionName": "shared_office365",
+                    "operationId": "SendEmailV2",
+                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+                  },
+                  "parameters": {
+                    "emailMessage/To": "@outputs('Get_Recruiter_by_ID')?['body/internalemailaddress']",
+                    "emailMessage/Subject": "New Job Application: @{outputs('Get_Job_Listing_Row_by_ID')?['body/apptrack_positiontitle']}",
+                    "emailMessage/Body": "<p>Hello @{outputs('Get_Recruiter_by_ID')?['body/fullname']},<br>\n<br>\nA new application has been submitted for: @{outputs('Get_Job_Listing_Row_by_ID')?['body/apptrack_positiontitle']}.<br>\nApplicant Name: @{triggerOutputs()?['body/apptrack_applicantname']}<br>\nEmail: @{triggerOutputs()?['body/emailaddress']}<br>\nContact Phone: @{triggerOutputs()?['body/apptrack_contactphone']}<br>\nLinkedIn Profile: @{triggerOutputs()?['body/apptrack_linkedinprofile']}<br>\n<br>\nApplicant's Resume is attached.<br>\n<br>\nThank you,<br>\nHorizon Automated Services</p>",
+                    "emailMessage/Attachments": [
+                      {
+                        "Name": "@{triggerOutputs()?['body/apptrack_applicantname']}-Resume.pdf",
+                        "ContentBytes": "@body('Download_a_file_or_an_image')"
+                      }
+                    ],
+                    "emailMessage/Importance": "Normal"
+                  },
+                  "authentication": "@parameters('$authentication')"
+                }
+              },
+              "Start_and_wait_for_an_approval": {
+                "runAfter": {
+                  "Send_an_email_(V2)": [
+                    "Succeeded"
+                  ]
+                },
+                "metadata": {
+                  "operationMetadataId": "140ec80a-20f4-4c24-a702-6d1cfb6dc502"
+                },
+                "type": "OpenApiConnectionWebhook",
+                "inputs": {
+                  "host": {
+                    "connectionName": "shared_approvals",
+                    "operationId": "StartAndWaitForAnApproval",
+                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_approvals"
+                  },
+                  "parameters": {
+                    "approvalType": "Basic",
+                    "WebhookApprovalCreationInput/title": "New Job Applicant: Please Review",
+                    "WebhookApprovalCreationInput/assignedTo": "@{outputs('Get_Recruiter_by_ID')?['body/internalemailaddress']}; Seth.Aker@skillstormnextgen.onmicrosoft.com;",
+                    "WebhookApprovalCreationInput/itemLink": "https://org471de5bc.crm.dynamics.com/main.aspx?appid=dbe0393c-e9b6-ee11-a569-0022480bc9b1&pagetype=entitylist&etn=apptrack_jobapplication&viewid=f1f5c360-5fee-45cb-aa1b-6328dc49b223&viewType=1039&lid=1706110446449",
+                    "WebhookApprovalCreationInput/itemLinkDescription": "Click here to review the application",
+                    "WebhookApprovalCreationInput/enableNotifications": true,
+                    "WebhookApprovalCreationInput/enableReassignment": true
+                  },
+                  "authentication": "@parameters('$authentication')"
+                }
+              },
+              "Condition": {
+                "actions": {
+                  "Set_Application_Status_to_Approved": {
+                    "runAfter": {},
+                    "metadata": {
+                      "operationMetadataId": "91fcb324-72b7-492e-b4b8-002117c42fe9"
+                    },
+                    "type": "OpenApiConnection",
+                    "inputs": {
+                      "host": {
+                        "connectionName": "shared_commondataserviceforapps",
+                        "operationId": "UpdateRecord",
+                        "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                      },
+                      "parameters": {
+                        "entityName": "apptrack_jobapplications",
+                        "recordId": "@triggerOutputs()?['body/apptrack_jobapplicationid']",
+                        "item/apptrack_status": 578500001
+                      },
+                      "authentication": "@parameters('$authentication')"
+                    }
+                  }
+                },
+                "runAfter": {
+                  "Start_and_wait_for_an_approval": [
+                    "Succeeded"
+                  ]
+                },
+                "else": {
+                  "actions": {
+                    "Set_Application_Status_to_Rejected": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "c9cbf435-dd31-4b45-9df7-422688b4149f"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps",
+                          "operationId": "UpdateRecord",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "apptrack_jobapplications",
+                          "recordId": "@triggerOutputs()?['body/apptrack_jobapplicationid']",
+                          "item/apptrack_status": 578500002
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    }
+                  }
+                },
+                "expression": {
+                  "equals": [
+                    "@outputs('Start_and_wait_for_an_approval')?['body/outcome']",
+                    "Approve"
+                  ]
+                },
+                "metadata": {
+                  "operationMetadataId": "f9e0ca94-5acc-4925-8766-b00f9146d306"
+                },
+                "type": "If"
+              }
+            }
+          },
+          "expression": {
+            "equals": [
+              "@triggerOutputs()?['body/apptrack_resume']",
+              "@null"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "d4d481fa-7fbc-4f95-bf8c-445b4ffadf85"
+          },
+          "type": "If"
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

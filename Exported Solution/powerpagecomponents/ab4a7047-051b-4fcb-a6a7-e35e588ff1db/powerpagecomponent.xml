@@ -1,0 +1,33 @@
+<powerpagecomponent powerpagecomponentid="ab4a7047-051b-4fcb-a6a7-e35e588ff1db">
+  <content>{
+  "copy": "&lt;div class='row sectionBlockLayout text-left' style='min-height: auto; padding: 8px;'&gt;\r\n  &lt;div class='container' style='display: flex; flex-wrap: wrap;'&gt;\r\n    &lt;div class='col-md-12 columnBlockLayout' style='padding: 16px; margin: 60px 0px;'&gt;&lt;/div&gt;\r\n  &lt;/div&gt;\r\n&lt;/div&gt;\r\n",
+  "displayorder": 1,
+  "enablerating": false,
+  "enabletracking": false,
+  "excludefromsearch": false,
+  "feedbackpolicy": 756150000,
+  "hiddenfromsitemap": false,
+  "isroot": true,
+  "pagetemplateid": "b2741266-3a58-42aa-8539-5c3cf71f1bd4",
+  "parentpageid": "9dd797f2-5dd0-4202-9684-89721e39dd99",
+  "partialurl": "Job-Listings-Page",
+  "publishingstateid": "2a0ca4d2-9e59-436a-bcef-80596bd316ab",
+  "sharedpageconfiguration": true,
+  "summary": "&lt;p&gt;This is a sample landing page designed to be a starting point for your website&lt;/p&gt;\r\n",
+  "title": "Subpage one"
+}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Job Listings Page</name>
+  <powerpagecomponenttype>2</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>7e6cbf7f-59af-4d81-99b2-7df7b5a27d5c</powerpagesiteid>
+  </powerpagesiteid>
+  <searchcontent>Subpage one&lt;div class='row sectionBlockLayout text-left' style='min-height: auto; padding: 8px;'&gt;
+  &lt;div class='container' style='display: flex; flex-wrap: wrap;'&gt;
+    &lt;div class='col-md-12 columnBlockLayout' style='padding: 16px; margin: 60px 0px;'&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+Job Listings Page</searchcontent>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

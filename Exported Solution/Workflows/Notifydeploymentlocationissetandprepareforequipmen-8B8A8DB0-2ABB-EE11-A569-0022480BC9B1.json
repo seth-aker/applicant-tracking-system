@@ -1,0 +1,155 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "apptrack_sharedcommondataserviceforapps_84895"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      },
+      "shared_office365": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "apptrack_sharedoffice365_7cb7b"
+        },
+        "api": {
+          "name": "shared_office365"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_a_row_is_added,_modified_or_deleted": {
+          "metadata": {
+            "operationMetadataId": "094eb99e-6de6-4e67-9f04-7951427b0b16"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "systemuser",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "apptrack_company"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Get_a_row_by_ID": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "48162518-7ff7-440c-bd10-de1f75750a3b"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "apptrack_companies",
+              "recordId": "@triggerOutputs()?['body/_apptrack_company_value']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Get_IT_Specialist_Contact": {
+          "runAfter": {
+            "Get_address_by_ID": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "1b0da5ce-bba9-4ece-baee-4b89424b712f"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "systemusers",
+              "recordId": "@outputs('Get_a_row_by_ID')?['body/_apptrack_assigneditspecialist_value']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Send_an_email_to_IT_Specialist": {
+          "runAfter": {
+            "Get_IT_Specialist_Contact": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "10769cb6-9085-44ae-824d-7f3499bb6f5f"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_office365",
+              "operationId": "SendEmailV2",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+            },
+            "parameters": {
+              "emailMessage/To": "@outputs('Get_IT_Specialist_Contact')?['body/internalemailaddress']",
+              "emailMessage/Subject": "A deployment location is assigned for @{triggerOutputs()?['body/fullname']}",
+              "emailMessage/Body": "<p>Hello @{outputs('Get_IT_Specialist_Contact')?['body/fullname']},<br>\n<br>\nA new hired employee has been assigned with a deployment location. Please check the details and assign them the necessary equipment.<br>\n<br>\nEmployee id: @{triggerOutputs()?['body/identityid']}<br>\nEmployee name: @{triggerOutputs()?['body/fullname']}<br>\nDeployment location: @{outputs('Get_a_row_by_ID')?['body/apptrack_companyname']}<br>\nAddress: @{outputs('Get_address_by_ID')?['body/apptrack_compositeaddress']}<br>\n<br>\n<a href=\"https://org471de5bc.crm.dynamics.com/main.aspx?appid=dbe0393c-e9b6-ee11-a569-0022480bc9b1&amp;pagetype=entitylist&amp;etn=apptrack_joblisting&amp;viewid=5c05cd63-7717-4834-939f-e062967c8fba&amp;viewType=1039&amp;lid=1706151221443\">Click here to assign inventory</a><br>\n<br>\nBest,<br>\nHiring Team</p>",
+              "emailMessage/Importance": "Normal"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Get_address_by_ID": {
+          "runAfter": {
+            "Get_a_row_by_ID": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "c7e14a1c-7358-4920-8711-c462a4d42cdb"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "apptrack_addresses",
+              "recordId": "@outputs('Get_a_row_by_ID')?['body/_apptrack_address_value']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

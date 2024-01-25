@@ -1,0 +1,18 @@
+<powerpagecomponent powerpagecomponentid="e4f180fe-a2f6-4518-9dc1-5a34996393c4">
+  <content>{
+  "powerpagesitelanguageid": "f1651072-f543-4c06-86b5-a80aa9627f75",
+  "display_name": "Site name",
+  "value": "Horizon Enterprises"
+}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Site name</name>
+  <powerpagecomponenttype>7</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6</powerpagesiteid>
+  </powerpagesiteid>
+  <powerpagesitelanguageid>
+    <powerpagesitelanguageid>f1651072-f543-4c06-86b5-a80aa9627f75</powerpagesitelanguageid>
+  </powerpagesitelanguageid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

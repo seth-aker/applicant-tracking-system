@@ -1,0 +1,19 @@
+<powerpagecomponent powerpagecomponentid="db958cb5-391a-c422-1c61-e6daf9dadd7a">
+  <content>{
+  "webpageid": "ab4a7047-051b-4fcb-a6a7-e35e588ff1db",
+  "right": 2,
+  "scope": 1,
+  "adx_webpageaccesscontrolrule_webrole": [
+    "643dd884-f524-4750-8194-3549627fce08",
+    "987e540d-c89f-4154-b06a-02765449ef40"
+  ]
+}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Restrict Read on Job Listings Page</name>
+  <powerpagecomponenttype>10</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>7e6cbf7f-59af-4d81-99b2-7df7b5a27d5c</powerpagesiteid>
+  </powerpagesiteid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

@@ -1,0 +1,178 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "apptrack_sharedcommondataserviceforapps_ff360"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      },
+      "shared_office365_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "apptrack_sharedoffice365_2a031"
+        },
+        "api": {
+          "name": "shared_office365"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_inventory_is_assigned": {
+          "metadata": {
+            "operationMetadataId": "164e5ddc-074f-4dbf-9e35-2ad614d92cda"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "apptrack_equipmentinventory",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "apptrack_assignedto"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Update_a_row": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "2b86a3ec-d7b0-44ed-a31e-a8abf0fd930e"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "UpdateRecord",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "apptrack_equipmentinventories",
+              "recordId": "@triggerOutputs()?['body/apptrack_equipmentinventoryid']",
+              "item/apptrack_dateassigned": "@utcNow()"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Send_an_email_(V2)": {
+          "runAfter": {
+            "Get_a_row_by_ID": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "0dbb0a0a-0482-4fc3-bcfa-940d29e18e0c"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_office365_1",
+              "operationId": "SendEmailV2",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+            },
+            "parameters": {
+              "emailMessage/To": "@{outputs('Get_Assigned_To_Employee_Information')?['body/internalemailaddress']};@{outputs('Get_Assigned_To_Employee_Information')?['body/personalemailaddress']}",
+              "emailMessage/Subject": "Your equipment order is submitted",
+              "emailMessage/Body": "<p>Hello @{outputs('Get_Assigned_To_Employee_Information')?['body/fullname']},<br>\n<br>\nWelcome to the team! Your deployment location is at: @{outputs('Get_Deployment_Location')?['body/apptrack_companyname']}.<br>\nAddress: @{outputs('Get_a_row_by_ID')?['body/apptrack_compositeaddress']}<br>\n<br>\n<br>\nAn equipment order has been submitted to the inventory for you. You should be receiving your equipment shortly.<br>\n<br>\nBest,<br>\nHorizon Human Resources</p>",
+              "emailMessage/Importance": "Normal"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Get_Assigned_To_Employee_Information": {
+          "runAfter": {
+            "Update_a_row": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "1b36644c-cfde-451c-8b88-f34a6bf5e101"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "systemusers",
+              "recordId": "@outputs('Update_a_row')?['body/_apptrack_assignedto_value']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Get_Deployment_Location": {
+          "runAfter": {
+            "Get_Assigned_To_Employee_Information": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "3cdc1ffa-0de8-41bc-828b-869503dbd909"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "apptrack_companies",
+              "recordId": "@outputs('Get_Assigned_To_Employee_Information')?['body/_apptrack_company_value']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Get_a_row_by_ID": {
+          "runAfter": {
+            "Get_Deployment_Location": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "a71377d7-deed-4570-99fc-6e8114afabb1"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "apptrack_addresses",
+              "recordId": "@outputs('Get_Deployment_Location')?['body/_apptrack_address_value']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

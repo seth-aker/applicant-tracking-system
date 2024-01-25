@@ -1,0 +1,19 @@
+<powerpagecomponent powerpagecomponentid="d5954a90-cd68-4e9c-a10c-62a4fe796594">
+  <content>{
+  "powerpagesitelanguageid": "cff73c28-7077-4f3d-95ea-2592844e6a71",
+  "display_name": "Footer",
+  "type": 756150001,
+  "value": "&lt;p class=\"smallText\" id=\"izw3os\"&gt;Horizon Enterprises 2024 © &lt;span id=\"year\"&gt;&lt;/span&gt;. All rights reserved.&lt;/p&gt;\n&lt;script&gt;\n  document.getElementById('year').innerHTML = new Date().getFullYear();\n&lt;/script&gt;\n"
+}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Footer</name>
+  <powerpagecomponenttype>7</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>7e6cbf7f-59af-4d81-99b2-7df7b5a27d5c</powerpagesiteid>
+  </powerpagesiteid>
+  <powerpagesitelanguageid>
+    <powerpagesitelanguageid>cff73c28-7077-4f3d-95ea-2592844e6a71</powerpagesitelanguageid>
+  </powerpagesitelanguageid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

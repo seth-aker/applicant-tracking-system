@@ -1,0 +1,1 @@
+apptrack_compositeaddress: =apptrack_streetline1 & If(IsBlank(apptrack_streetline2), "", Char(10) & apptrack_streetline2) & If(IsBlank(apptrack_streetline3), "", Char(10) & apptrack_streetline3) & Char(10) & apptrack_city & ", " & apptrack_stateprovince & " " & apptrack_zippostalcode

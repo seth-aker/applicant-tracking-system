@@ -1,0 +1,85 @@
+<powerpagecomponent powerpagecomponentid="87be595f-f5ce-4cce-d369-72c5b769d391">
+  <content>{
+  "displayorder": 3,
+  "customcss": "",
+  "customjavascript": "",
+  "pagetemplateid": "b2741266-3a58-42aa-8539-5c3cf71f1bd4",
+  "parentpageid": "9dd797f2-5dd0-4202-9684-89721e39dd99",
+  "partialurl": "Job-Submission-Subpage",
+  "isroot": false,
+  "rootwebpageid": "02a5f0fc-dd00-7356-bd19-ff9079819189",
+  "title": "Job Submission Submission Page",
+  "summary": "&lt;p&gt;This is a sample landing page designed to be a starting point for your website&lt;/p&gt;",
+  "copy": "&lt;div id=\"ik2uk\" class=\"row sectionBlockLayout sectionPrimaryColor text-left\" style=\"display: flex; flex-wrap: wrap; padding: 8px; margin: 0px;\"&gt;&lt;div id=\"i8kvv\" class=\"container\"&gt;&lt;/div&gt;&lt;/div&gt;\n&lt;div id=\"iw3g9g\" class=\"row sectionBlockLayout text-left\" style=\"display: flex; flex-wrap: wrap; padding: 8px; margin: 0px;\"&gt;\n  &lt;div id=\"ivywit\" class=\"container\"&gt;\n    &lt;div id=\"ipaj9h\" class=\"col-md-12 columnBlockLayout\" style=\"flex-grow: 1; display: flex; flex-direction: column; min-width: 250px; word-break: break-word;\"&gt;\n      &lt;h1 id=\"iiuu6r\"&gt;Job Submission:&lt;br /&gt;&lt;/h1&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n&lt;div id=\"i7u70e\" class=\"row sectionBlockLayout text-left\" style=\"display: flex; flex-wrap: wrap; padding: 8px; margin: 0px;\"&gt;\n  &lt;div id=\"iuo3zt\" class=\"container\"&gt;&lt;div id=\"iywhq6\" class=\"col-md-12 columnBlockLayout\" style=\"flex-grow: 1; display: flex; flex-direction: column; min-width: 250px; word-break: break-word;\"&gt;{% webform name: 'Job Application Multi-Step Form' %}&lt;/div&gt;&lt;/div&gt;\n&lt;/div&gt;\n&lt;script&gt;\n\n  const submitButton = document.querySelector('input[name=\"ctl00$ContentContainer$EntityFormControl_75aa277c5bb9ee11a5690022480bc9b1$InsertButton\"]');\n  submitButton.addEventListener('click', function() {\n      // Your custom code here\n      // Test Automate Flow: https://horizonenterprisesjobsite.powerappsportals.com/_api/cloudflow/v1.0/trigger/2584e0b9-df02-b1be-9ede-a64357274d6e\n      // Regular Instant Flow: https://horizonenterprisesjobsite.powerappsportals.com/_api/cloudflow/v1.0/trigger/b4201e93-384e-40ae-418b-6399b785cb8b\n      var req = new XMLHttpRequest();\n      var url = \"https://horizonenterprisesjobsite.powerappsportals.com/_api/cloudflow/v1.0/trigger/2584e0b9-df02-b1be-9ede-a64357274d6e\";\n      req.open(\"POST\", url, true);\n      req.setRequestHeader('Content-Type', 'application/json');\n\n      // Prepare data for the request\n      var eventData = {\n          \"Email\": \"abc@contoso.com\",\n          \"File\": {\n              \"name\": \"Report.pdf\",\n              \"contentBytes\": \"base64_encoded_string\"\n          }\n      };\n\n      // Send data with the request\n      req.send(JSON.stringify({\"eventData\": eventData}));\n\n      // Handle response\n      req.onload = function() {\n          if (req.status &gt;= 200 &amp;&amp; req.status &lt; 400) {\n              // Request was successful\n              console.log(\"Flow has been triggered successfully\");\n          } else {\n              // Request failed\n              console.error(\"Failed to trigger flow. Status: \" + req.status);\n          }\n      };\n\n      req.onerror = function() {\n          // Handle errors during the request\n          console.error(\"Error occurred during the request\");\n      };\n  });\n&lt;/script&gt;\n",
+  "publishingstateid": "2a0ca4d2-9e59-436a-bcef-80596bd316ab",
+  "enablerating": false,
+  "enabletracking": false,
+  "excludefromsearch": false,
+  "hiddenfromsitemap": true,
+  "sharedpageconfiguration": false
+}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Job-Submission-Subpage</name>
+  <powerpagecomponenttype>2</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>7e6cbf7f-59af-4d81-99b2-7df7b5a27d5c</powerpagesiteid>
+  </powerpagesiteid>
+  <powerpagesitelanguageid>
+    <powerpagesitelanguageid>cff73c28-7077-4f3d-95ea-2592844e6a71</powerpagesitelanguageid>
+  </powerpagesitelanguageid>
+  <searchcontent>Job Submission Submission Page&lt;div id="ik2uk" class="row sectionBlockLayout sectionPrimaryColor text-left" style="display: flex; flex-wrap: wrap; padding: 8px; margin: 0px;"&gt;&lt;div id="i8kvv" class="container"&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div id="iw3g9g" class="row sectionBlockLayout text-left" style="display: flex; flex-wrap: wrap; padding: 8px; margin: 0px;"&gt;
+  &lt;div id="ivywit" class="container"&gt;
+    &lt;div id="ipaj9h" class="col-md-12 columnBlockLayout" style="flex-grow: 1; display: flex; flex-direction: column; min-width: 250px; word-break: break-word;"&gt;
+      &lt;h1 id="iiuu6r"&gt;Job Submission:&lt;br /&gt;&lt;/h1&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="i7u70e" class="row sectionBlockLayout text-left" style="display: flex; flex-wrap: wrap; padding: 8px; margin: 0px;"&gt;
+  &lt;div id="iuo3zt" class="container"&gt;&lt;div id="iywhq6" class="col-md-12 columnBlockLayout" style="flex-grow: 1; display: flex; flex-direction: column; min-width: 250px; word-break: break-word;"&gt;{% webform name: 'Job Application Multi-Step Form' %}&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+
+  const submitButton = document.querySelector('input[name="ctl00$ContentContainer$EntityFormControl_75aa277c5bb9ee11a5690022480bc9b1$InsertButton"]');
+  submitButton.addEventListener('click', function() {
+      // Your custom code here
+      // Test Automate Flow: https://horizonenterprisesjobsite.powerappsportals.com/_api/cloudflow/v1.0/trigger/2584e0b9-df02-b1be-9ede-a64357274d6e
+      // Regular Instant Flow: https://horizonenterprisesjobsite.powerappsportals.com/_api/cloudflow/v1.0/trigger/b4201e93-384e-40ae-418b-6399b785cb8b
+      var req = new XMLHttpRequest();
+      var url = "https://horizonenterprisesjobsite.powerappsportals.com/_api/cloudflow/v1.0/trigger/2584e0b9-df02-b1be-9ede-a64357274d6e";
+      req.open("POST", url, true);
+      req.setRequestHeader('Content-Type', 'application/json');
+
+      // Prepare data for the request
+      var eventData = {
+          "Email": "abc@contoso.com",
+          "File": {
+              "name": "Report.pdf",
+              "contentBytes": "base64_encoded_string"
+          }
+      };
+
+      // Send data with the request
+      req.send(JSON.stringify({"eventData": eventData}));
+
+      // Handle response
+      req.onload = function() {
+          if (req.status &gt;= 200 &amp;&amp; req.status &lt; 400) {
+              // Request was successful
+              console.log("Flow has been triggered successfully");
+          } else {
+              // Request failed
+              console.error("Failed to trigger flow. Status: " + req.status);
+          }
+      };
+
+      req.onerror = function() {
+          // Handle errors during the request
+          console.error("Error occurred during the request");
+      };
+  });
+&lt;/script&gt;
+Job-Submission-Subpage</searchcontent>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

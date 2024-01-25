@@ -1,0 +1,11 @@
+<powerpagecomponent powerpagecomponentid="13cfb6a0-d408-4bd9-85ba-b058b6ea3906">
+  <content>{"status":"enable","selectedThemeId":"329a43fa-5471-4678-8330-d3a0b404e9bb","siteSettingId":"13cfb6a0-d408-4bd9-85ba-b058b6ea3906","version":"V2"}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>ThemeFeature</name>
+  <powerpagecomponenttype>9</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>1e2dbbcf-3ca0-4b73-a3e2-fa512538c9c6</powerpagesiteid>
+  </powerpagesiteid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

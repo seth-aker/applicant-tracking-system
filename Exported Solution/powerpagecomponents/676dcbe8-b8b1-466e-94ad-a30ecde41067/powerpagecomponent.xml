@@ -1,0 +1,29 @@
+<powerpagecomponent powerpagecomponentid="676dcbe8-b8b1-466e-94ad-a30ecde41067">
+  <content>{
+  "entityname": "Job Listing Details Form",
+  "entitylogicalname": "apptrack_jobapplication",
+  "scope": 756150000,
+  "append": true,
+  "appendto": true,
+  "delete": true,
+  "read": true,
+  "create": true,
+  "write": true,
+  "parentrelationship": null,
+  "parententitypermission": null,
+  "contactrelationship": null,
+  "accountrelationship": null,
+  "childTablePermissions": [],
+  "adx_entitypermission_webrole": [
+    "987e540d-c89f-4154-b06a-02765449ef40"
+  ]
+}</content>
+  <iscustomizable>1</iscustomizable>
+  <name>Job Listing Details Form</name>
+  <powerpagecomponenttype>18</powerpagecomponenttype>
+  <powerpagesiteid>
+    <powerpagesiteid>7e6cbf7f-59af-4d81-99b2-7df7b5a27d5c</powerpagesiteid>
+  </powerpagesiteid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</powerpagecomponent>

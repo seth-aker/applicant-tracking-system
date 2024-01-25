@@ -1,0 +1,284 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_office365_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "apptrack_sharedoffice365_2a031"
+        },
+        "api": {
+          "name": "shared_office365"
+        }
+      },
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "apptrack_sharedcommondataserviceforapps_ff360"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_Job_Application_status_is_updated": {
+          "metadata": {
+            "operationMetadataId": "4796e248-8a54-432f-afdd-cd9929307054"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "apptrack_jobapplication",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "apptrack_status"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Switch": {
+          "runAfter": {
+            "Initialize_variable": [
+              "Succeeded"
+            ]
+          },
+          "cases": {
+            "Rejected": {
+              "case": 578500002,
+              "actions": {
+                "If_ActiveInactive_status_is_Active": {
+                  "actions": {
+                    "Send_an_email_(V2)_5": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "b37af402-6998-464c-b103-2e9d620da89b"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_office365_1",
+                          "operationId": "SendEmailV2",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+                        },
+                        "parameters": {
+                          "emailMessage/To": "@triggerOutputs()?['body/emailaddress']",
+                          "emailMessage/Subject": "Job Application Notification for: @{outputs('Get_Job_Listing_Info_by_ID')?['body/apptrack_positiontitle']}",
+                          "emailMessage/Body": "<p>Greetings&nbsp;,<br>\n<br>\nThank you for your interest in Horizon Enterprises. Unfortunately, we will not be moving forward with your application for @{outputs('Get_Job_Listing_Info_by_ID')?['body/apptrack_positiontitle']} at this time. We wish you the best of luck in your job search going forward. Do not hesitate to apply for other posted positions that you feel you are qualified for on our company website.<br>\n<br>\nThank you,<br>\nHorizon Enterprise Team</p>",
+                          "emailMessage/Importance": "Normal"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    },
+                    "Update_a_row": {
+                      "runAfter": {
+                        "Send_an_email_(V2)_5": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "51cd115e-e302-4771-bfcb-5a3b865a66ee"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps",
+                          "operationId": "UpdateRecord",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "apptrack_jobapplications",
+                          "recordId": "@triggerOutputs()?['body/apptrack_jobapplicationid']",
+                          "item/statecode": 1
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    }
+                  },
+                  "runAfter": {},
+                  "expression": {
+                    "equals": [
+                      "@triggerOutputs()?['body/statecode']",
+                      0
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "7c15dfd8-331e-4a14-aa96-3d7a2c59a04e"
+                  },
+                  "type": "If"
+                }
+              }
+            },
+            "Approved": {
+              "case": 578500001,
+              "actions": {
+                "Get_Hiring_Manager_Information_by_ID": {
+                  "runAfter": {
+                    "Send_an_email_(V2)_6": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "8d73cf7b-ab15-4f10-a489-d252b28f4296"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "GetItem",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "systemusers",
+                      "recordId": "@outputs('Get_Job_Listing_Info_by_ID')?['body/_apptrack_hiringmanager_value']"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Send_an_email_(V2)_3": {
+                  "runAfter": {
+                    "Create_new_interview_row_with_relevant_info": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "b694774a-d9cd-4530-a29b-518937a62a75"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_office365_1",
+                      "operationId": "SendEmailV2",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+                    },
+                    "parameters": {
+                      "emailMessage/To": "@outputs('Get_Hiring_Manager_Information_by_ID')?['body/internalemailaddress']",
+                      "emailMessage/Subject": "Request for interview scheduling",
+                      "emailMessage/Body": "<p>Hello @{outputs('Get_Hiring_Manager_Information_by_ID')?['body/fullname']},<br>\n<br>\nA recruiter has approved a new candiate for interviewing. Please review candidate's information and schedule an interview with them as soon as possible.<br>\nCandidate: @{triggerOutputs()?['body/apptrack_applicantname']}<br>\nCandidate Email: @{triggerOutputs()?['body/emailaddress']}<br>\nCandidate Primary Phone: @{triggerOutputs()?['body/apptrack_contactphone']}<br>\n<br>\n<a href=\"https://org471de5bc.crm.dynamics.com/main.aspx?appid=dbe0393c-e9b6-ee11-a569-0022480bc9b1&amp;pagetype=entitylist&amp;etn=apptrack_interview&amp;viewid=727e2153-74b9-ee11-a569-0022480bc9b1&amp;viewType=1039&amp;lid=1706112479498\">Click here to view schedule an interview</a><br>\n<br>\nBest,<br>\nHorizon Automated Services<br>\n&nbsp;</p>",
+                      "emailMessage/Importance": "Normal"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Create_new_interview_row_with_relevant_info": {
+                  "runAfter": {
+                    "Get_Hiring_Manager_Information_by_ID": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "e2e0e307-17af-4345-809f-90b4b24825c2"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "CreateRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "apptrack_interviews",
+                      "item/apptrack_ApplicationID@odata.bind": "/apptrack_jobapplications/@{triggerOutputs()?['body/apptrack_jobapplicationid']}",
+                      "item/apptrack_HiringManager@odata.bind": "/systemusers/@{outputs('Get_Job_Listing_Info_by_ID')?['body/_apptrack_hiringmanager_value']}",
+                      "item/apptrack_JobListing@odata.bind": "/apptrack_joblistings/@{triggerOutputs()?['body/_apptrack_joblisting_value']}"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Send_an_email_(V2)_6": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "9261c540-c74a-4038-9a1b-137141dc21b1"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_office365_1",
+                      "operationId": "SendEmailV2",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+                    },
+                    "parameters": {
+                      "emailMessage/To": "@triggerOutputs()?['body/emailaddress']",
+                      "emailMessage/Subject": "Job Application Notification for: @{outputs('Get_Job_Listing_Info_by_ID')?['body/apptrack_positiontitle']}",
+                      "emailMessage/Body": "<p>Greetings ,<br>\n<br>\nWe are excited to inform you that your application for @{outputs('Get_Job_Listing_Info_by_ID')?['body/apptrack_positiontitle']} has been approved and we would like to move forward with you in our interview process. A hiring manager will be contacting you shortly to set up an interview.<br>\n<br>\nBest Wishes,<br>\nHorizon Enterprises</p>",
+                      "emailMessage/Importance": "Normal"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "actions": {}
+          },
+          "expression": "@variables('Account Status')",
+          "metadata": {
+            "operationMetadataId": "ff6e6d5a-519d-42fa-b250-62a664488ec0"
+          },
+          "type": "Switch"
+        },
+        "Get_Job_Listing_Info_by_ID": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "89faea11-013f-4447-8796-46df6bf2321b"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "apptrack_joblistings",
+              "recordId": "@triggerOutputs()?['body/_apptrack_joblisting_value']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Initialize_variable": {
+          "runAfter": {
+            "Get_Job_Listing_Info_by_ID": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "f4486993-8e82-4650-a213-28ba6e424cc4"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Account Status",
+                "type": "integer",
+                "value": "@triggerOutputs()?['body/apptrack_status']"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}
